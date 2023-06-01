@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.3.0",
+    "bootstrap": "^5.3.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.0.0",
+    "webpack-notifier": "^1.15.0"
+  },
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "dependencies": {
+    "@symfony/stimulus-bridge": "^3.2.2"
+  }
+}
