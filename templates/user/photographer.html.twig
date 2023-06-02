@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FotoController!{% endblock %}
+
+{% block body %}
+
+        
+        <!-- ***** Our Team Area Starts ***** -->
+    <section class="our-team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h1>Potwierdzone nadchodzące sesje</h1>
+                        <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reservationsAcc in reservationsAccepted %}
+                                <tr>
+                                    <td>{{ reservationsAcc.bookeremail }}</td>
+                                    <td>{{ reservationsAcc.date|date('Y-m-d') }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h1>Sesje oczekujące na potwierdzenie</h1>
+                        <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Data</th>
+                                <th>Potwierdzenie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reservationsWait in reservationsWaited %}
+                                <tr>
+                                    <td>{{ reservationsWait.bookeremail }}</td>
+                                    <td>{{ reservationsWait.date|date('Y-m-d') }}</td>
+                                    <td>Potwierdź || Odrzuć</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Main Banner Area End ***** -->
+{% endblock %}

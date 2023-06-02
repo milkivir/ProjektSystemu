@@ -2375,3 +2375,42 @@ responsive
     opacity: 0;
   }
 }
+.ui-datepicker {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.ui-datepicker-header {
+  background-color: #f0f0f0;
+  border: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.ui-datepicker-calendar {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.ui-datepicker-calendar th,
+.ui-datepicker-calendar td {
+  padding: 5px;
+  text-align: center;
+}
+
+.ui-datepicker-calendar td {
+  cursor: pointer;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  color: #333;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+  background-color: #e0e0e0;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+  background-color: #007bff;
+  color: #fff;
+}

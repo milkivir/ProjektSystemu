@@ -23,7 +23,7 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">Kalendarz</a></li>
+                            <li class="scroll-to-section"><a href="{{path('app_photographers')}}">Oferta</a></li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <li class="scroll-to-section"><a href="{{path('app_logout')}}">Wyloguj</a></li>
                         {% else %}
@@ -46,5 +46,54 @@
     {% block body %}
     
     {% endblock %}
+      <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="/images/logo.png">
+                        </div>
+                        <ul>
+                            <li><a href="#">Adres</a></li>
+                            <li><a href="#">rezerwujfotografa@fotograf.pl</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="#">Sesje ślubne</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul></ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Tracking ID</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2023 Natalia Paszek & Jakub Bandoła
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>

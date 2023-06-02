@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CalendarController!{% endblock %}
+
+{% block body %}
+<div class="main-banner" id="top">
+<div class="container">
+        <h1>Formularz z kalendarzem</h1>
+        {{ form_start(form, {'attr': {'class': 'form'}}) }}
+        <div class="form-group">
+            {{ form_label(form.date, 'Wybierz datę') }}
+            {{ form_widget(form.date, {'attr': {'class': 'form-control datepicker', 'autocomplete': 'off'}}) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+        {{ form_end(form) }}
+    </div>
+    </div>
+
+
+{% endblock %}
+

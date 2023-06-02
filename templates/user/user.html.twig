@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Users{% endblock %}
+
+{% block body %}
+<div class="main-banner" id="top">
+    {% if users|length > 0 %}
+        {% for user in users %}
+            <div class="col-sm-6">
+            <div>
+                {{user.id}}
+            </div>
+            <div>
+                {{user.email}}
+            </div>
+            <div>
+            Current role:  {{user.roles|join(' | ')}}
+            </div>
+            <a href="{{ path('app_user_role', { user: user.id }) }}"> Edit</a>
+            </div>
+        {% endfor %} 
+    {% endif %}
+</div>
+{% endblock %}

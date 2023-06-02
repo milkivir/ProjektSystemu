@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CalendarController!{% endblock %}
+
+{% block body %}
+<div class="main-banner" id="top">
+<div class="container">
+        <h1 class="mt-5">Lista fotografów</h1>
+        
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Email</th>
+                    <th>Umów sesję</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>Nazwa zakładu</td>
+                        <td>{{ user.email }}</td>
+                        <td><a href="{{ path('app_calendar', { user: user.id }) }}">Umów</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
