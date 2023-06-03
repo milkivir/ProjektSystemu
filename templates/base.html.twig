@@ -22,15 +22,25 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="{{path('app_photographers')}}">Oferta</a></li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="scroll-to-section"><a href="{{path('app_user')}}">Użytkownicy</a></li>
+                        {% endif %}
+                        {% if is_granted('ROLE_PHOTOGRAPHER') %}
+                            <li class="scroll-to-section"><a href="{{ path('app_photographer', {'user': app.user.id}) }}">Rezerwacje</a></li>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') %}
+                            <li class="scroll-to-section"><a href="{{ path('app_client', {'user': app.user.id}) }}">Moje rezerwacje</a></li>
+                        {% endif %}
                             <li class="scroll-to-section"><a href="{{path('app_logout')}}">Wyloguj</a></li>
+                            
                         {% else %}
                             <li class="scroll-to-section"><a href="{{path('app_register')}}">Rejestracja</a></li>
                             <li class="scroll-to-section"><a href="{{path('app_login')}}">Logowanie</a></li>
                         {% endif %}
-                            
+                        
                         </ul>    
 
                         <a class='menu-trigger'>

@@ -73,18 +73,28 @@ class UserController extends AbstractController
 
     #[Route('/accept/{id}', name: 'app_accept')]
     #[IsGranted('ROLE_PHOTOGRAPHER')]
-    public function accept(int $id, Reservations $reservation): Response
+    public function accept(int $id, EntityManagerInterface $entityManager): Response
     {
+        /** @var User $user */
+        $user = $this->security->getUser();
+        $user = $user->getId();
+        $reservation = $entityManager->getRepository(Reservations::class)->find($id);
         $reservation->setIsConfirmed(1);
-        return $this->redirectToRoute('app_foto');
+        $entityManager->flush();
+        return $this->redirectToRoute('app_photographer', ['user' => $user]);
     }
     
     #[Route('/decline/{id}', name: 'app_decline')]
     #[IsGranted('ROLE_PHOTOGRAPHER')]
-    public function decline(int $id, Reservations $reservation): Response
+    public function decline(int $id, EntityManagerInterface $entityManager): Response
     {
-        $reservation->setIsConfirmed(1);
-        return $this->redirectToRoute('app_foto');
+        /** @var User $user */
+        $user = $this->security->getUser();
+        $user = $user->getId();
+        $reservation = $entityManager->getRepository(Reservations::class)->find($id);
+        $entityManager->remove($reservation);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_photographer', ['user' => $user]);
     }
 
     #[Route('/user/{user}/role', name: 'app_user_role')]

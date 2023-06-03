@@ -50,7 +50,7 @@
                                 <tr>
                                     <td>{{ reservationsWait.bookeremail }}</td>
                                     <td>{{ reservationsWait.date|date('Y-m-d') }}</td>
-                                    <td>Potwierdź || Odrzuć</td>
+                                    <td><a href="{{ path('app_accept', {'id': reservationsWait.id}) }}">Potwierdź</a> || <a href="{{ path('app_decline', {'id': reservationsWait.id}) }}">Odrzuć</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
